@@ -1,0 +1,1673 @@
+/* Camping El Oasis — tokens de marca */
+
+:root {
+  --arena: #F6E3C4;
+  --crema: #FFF8EE;
+  --oceano: #008DA8;
+  --oceano-oscuro: #00728A;
+  --profundo: #005B6B;
+  --salvia: #6DAF7B;
+  --terracota: #E76F51;
+  --sol: #F4B400;
+  --sol-oscuro: #D49C00;
+  --coral: #FF7F6E;
+  --blanco: #FFFcf6;
+  --texto: #005B6B;
+  --texto-suave: #3A7A86;
+
+  --font-display: "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito Sans", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+
+  --max: 1120px;
+  --nav-h: 76px;
+  --radius: 14px;
+  --shadow: 0 8px 28px rgba(0, 91, 107, 0.08);
+  --ease: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--arena);
+  color: var(--texto);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sol);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -40px;
+  z-index: 200;
+  background: var(--profundo);
+  color: var(--crema);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* —— Botones (CTA = Amarillo Sol) —— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 13px 26px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: transform var(--ease), background var(--ease), border-color var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--sol {
+  background: var(--sol);
+  color: var(--profundo);
+  border-color: var(--sol);
+}
+
+.btn--sol:hover {
+  background: var(--sol-oscuro);
+  border-color: var(--sol-oscuro);
+}
+
+.btn--oceano {
+  background: var(--oceano);
+  color: var(--crema);
+  border-color: var(--oceano);
+}
+
+.btn--oceano:hover {
+  background: var(--oceano-oscuro);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--crema);
+  border-color: rgba(255, 248, 238, 0.55);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 248, 238, 0.12);
+}
+
+.btn--linea {
+  background: transparent;
+  color: var(--oceano);
+  border-color: var(--oceano);
+}
+
+.btn--linea:hover {
+  background: var(--oceano);
+  color: var(--crema);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* —— Nav —— */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  height: var(--nav-h);
+  background: rgba(255, 248, 238, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  gap: 16px;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.nav__logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.nav__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  color: var(--profundo);
+}
+
+.nav__name small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oceano);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav__links a {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--profundo);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.nav__links a:hover {
+  color: var(--oceano);
+}
+
+.nav__links .btn {
+  margin-left: 8px;
+  padding: 9px 18px;
+}
+
+.nav__burger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+}
+
+.nav__burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--profundo);
+  border-radius: 2px;
+}
+
+@media (max-width: 880px) {
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 24px 20px;
+    background: var(--crema);
+    border-bottom: 1px solid rgba(0, 91, 107, 0.08);
+    box-shadow: var(--shadow);
+  }
+
+  .nav__links.is-open {
+    display: flex;
+  }
+
+  .nav__links .btn {
+    margin: 8px 0 0;
+  }
+}
+
+/* —— Hero —— */
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--nav-h));
+  display: grid;
+  align-items: end;
+  color: var(--crema);
+  background:
+    linear-gradient(180deg, rgba(0, 91, 107, 0.12) 0%, rgba(0, 91, 107, 0.45) 45%, rgba(0, 91, 107, 0.82) 100%),
+    url("https://campingeloasis.cl/images/camping-el-oasis-guanaqueros-01.jpg") center / cover no-repeat;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 72px 0 80px;
+  max-width: 720px;
+}
+
+.hero__script {
+  font-family: var(--font-script);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 600;
+  color: var(--sol);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.hero__place {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--arena);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+
+.hero__lead {
+  font-size: 1.08rem;
+  color: rgba(255, 248, 238, 0.88);
+  max-width: 48ch;
+  margin-bottom: 28px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 36px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--arena);
+}
+
+/* —— Secciones —— */
+.section {
+  padding: 88px 0;
+}
+
+.section--crema {
+  background: var(--crema);
+}
+
+.section--arena {
+  background: var(--arena);
+}
+
+.section--oceano {
+  background: var(--oceano);
+  color: var(--crema);
+}
+
+.kicker {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oceano);
+  margin-bottom: 8px;
+}
+
+.section--oceano .kicker {
+  color: var(--arena);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--profundo);
+  margin-bottom: 12px;
+}
+
+.section--oceano h2 {
+  color: var(--crema);
+}
+
+.lede {
+  font-size: 1.05rem;
+  color: var(--texto-suave);
+  max-width: 58ch;
+}
+
+.section--oceano .lede {
+  color: rgba(255, 248, 238, 0.82);
+}
+
+/* —— El camping —— */
+.intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.intro p + p {
+  margin-top: 16px;
+}
+
+.facts {
+  display: grid;
+  gap: 14px;
+}
+
+.fact {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  border: 1px solid rgba(0, 141, 168, 0.12);
+}
+
+.fact strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--oceano);
+  line-height: 1.1;
+}
+
+.fact span {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 800px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* —— Sectores —— */
+.sitios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.sitio {
+  background: var(--blanco);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.sitio img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.sitio__body {
+  padding: 24px;
+}
+
+.sitio__tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oceano);
+  background: rgba(0, 141, 168, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.sitio h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.sitio p {
+  color: var(--texto-suave);
+  margin-bottom: 16px;
+}
+
+.sitio li {
+  font-size: 0.92rem;
+  padding: 5px 0 5px 16px;
+  position: relative;
+}
+
+.sitio li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--salvia);
+}
+
+@media (max-width: 720px) {
+  .sitios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Servicios —— */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.servicio {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.servicio svg {
+  width: 28px;
+  height: 28px;
+  color: var(--salvia);
+  margin-bottom: 12px;
+}
+
+.servicio h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.servicio p {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 900px) {
+  .servicios-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Galería —— */
+.galeria-mosaic {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 10px;
+}
+
+.galeria-mosaic a {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.galeria-mosaic a:first-child {
+  grid-row: 1 / span 2;
+}
+
+.galeria-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galeria-mosaic a:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .galeria-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 180px 180px 180px;
+  }
+
+  .galeria-mosaic a:first-child {
+    grid-column: 1 / span 2;
+    grid-row: auto;
+  }
+}
+
+/* —— Precios —— */
+.precios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.precio {
+  background: var(--blanco);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.precio--playa {
+  background: var(--profundo);
+  color: var(--crema);
+  border-color: var(--profundo);
+}
+
+.precio__name {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oceano);
+  margin-bottom: 6px;
+}
+
+.precio--playa .precio__name {
+  color: var(--sol);
+}
+
+.precio h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.precio-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 91, 107, 0.08);
+  font-size: 0.92rem;
+}
+
+.precio--playa .precio-row {
+  border-bottom-color: rgba(255, 248, 238, 0.12);
+}
+
+.precio-row b {
+  color: var(--terracota);
+  font-family: var(--font-display);
+}
+
+.precio--playa .precio-row b {
+  color: var(--sol);
+}
+
+.precio__note {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  margin: 16px 0 22px;
+}
+
+.precio--playa .precio__note {
+  color: rgba(255, 248, 238, 0.7);
+}
+
+.horarios {
+  display: flex;
+  gap: 24px;
+  margin: 12px 0 8px;
+}
+
+.horarios b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--oceano);
+}
+
+@media (max-width: 880px) {
+  .precios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Reservas / contacto —— */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.card {
+  background: var(--blanco);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(0, 91, 107, 0.16);
+  border-radius: 10px;
+  background: var(--crema);
+  color: var(--profundo);
+  font-size: 0.95rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--oceano);
+  box-shadow: 0 0 0 3px rgba(0, 141, 168, 0.15);
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.help {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.info-list {
+  display: grid;
+  gap: 18px;
+}
+
+.info-list h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.info-list p,
+.info-list li {
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.info-list ul {
+  display: grid;
+  gap: 6px;
+}
+
+.canal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(0, 91, 107, 0.12);
+  border-radius: 12px;
+  background: var(--blanco);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.canal:hover {
+  border-color: var(--oceano);
+}
+
+.canal small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.canales {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .split,
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Ubicación —— */
+.mapa {
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 360px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+}
+
+.ubi-item {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ubi-item::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--terracota);
+}
+
+.ubi-item h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.ubi-item p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* —— Footer —— */
+.footer {
+  background: var(--profundo);
+  color: var(--crema);
+  padding: 48px 0 28px;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 248, 238, 0.12);
+}
+
+.footer__brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.footer__brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  background: var(--crema);
+  border-radius: 50%;
+}
+
+.footer__brand strong {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.footer p {
+  font-size: 0.88rem;
+  color: rgba(255, 248, 238, 0.7);
+  max-width: 36ch;
+}
+
+.footer h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--arena);
+  margin-bottom: 12px;
+}
+
+.footer ul {
+  display: grid;
+  gap: 8px;
+}
+
+.footer a:hover {
+  color: var(--sol);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 248, 238, 0.55);
+}
+
+@media (max-width: 700px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— WhatsApp —— */
+.wa {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 70;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+}
+
+.wa:hover {
+  transform: scale(1.06);
+}
+
+.wa svg {
+  width: 28px;
+  height: 28px;
+}
+
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.field input,
+.field select,
+.textarea,
+.field textarea {
+  font-size: 16px;
+}
+
+.explore {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.explore a {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  background: rgba(255, 248, 238, 0.16);
+  border: 1px solid rgba(255, 248, 238, 0.28);
+  color: var(--crema);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.cta-band {
+  background: var(--profundo);
+  color: var(--crema);
+  padding: 56px 0;
+  text-align: center;
+}
+
+.cta-band h2 {
+  color: var(--crema);
+}
+
+.cta-band .lede {
+  margin-inline: auto;
+  color: rgba(255, 248, 238, 0.78);
+}
+
+.cta-band .btn {
+  margin-top: 22px;
+}
+
+/* Novedades */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.news {
+  background: var(--blanco);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.news--wide {
+  background: var(--profundo);
+  color: var(--crema);
+}
+
+.news--wide .kicker,
+.news--wide h3 {
+  color: var(--sol);
+}
+
+.news h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 8px 0 10px;
+}
+
+.news p {
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.news--wide p {
+  color: rgba(255, 248, 238, 0.8);
+}
+
+.news time {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oceano);
+}
+
+.news--wide time {
+  color: var(--arena);
+}
+
+/* Alrededores */
+.alre-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.alre {
+  background: var(--blanco);
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+  min-height: 100%;
+}
+
+.alre span {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--terracota);
+}
+
+.alre h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 8px 0 8px;
+}
+
+.alre p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* Mapa de sectores */
+.reserva-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+.camp-map {
+  background: var(--blanco);
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.camp-map__legend {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  margin-bottom: 12px;
+}
+
+.camp-map__board {
+  display: grid;
+  gap: 8px;
+}
+
+.camp-map__sea,
+.camp-map__sand,
+.camp-map__road {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 14px 10px;
+}
+
+.camp-map__sea {
+  background: linear-gradient(180deg, #008DA8, #005B6B);
+  color: var(--crema);
+  min-height: 64px;
+  display: grid;
+  place-items: center;
+}
+
+.camp-map__sand {
+  background: var(--arena);
+  color: var(--profundo);
+}
+
+.camp-map__road {
+  background: #e8d9bc;
+  color: var(--profundo);
+  font-size: 0.72rem;
+}
+
+.camp-map button {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 91, 107, 0.12);
+  background: var(--crema);
+  color: var(--profundo);
+  min-height: 52px;
+}
+
+.camp-map button strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+
+.camp-map button small {
+  display: block;
+  color: var(--texto-suave);
+  font-size: 0.78rem;
+}
+
+.camp-map button.is-on {
+  border-color: var(--sol);
+  background: #fff6d6;
+  box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.25);
+}
+
+.camp-map button[data-sitio="bosque"] {
+  background: #e7f4ea;
+}
+
+.sitio-info {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--crema);
+}
+
+.sitio-info__tag {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oceano);
+}
+
+.sitio-info h3 {
+  margin: 4px 0 6px;
+}
+
+.sitio-info__dist {
+  font-weight: 700;
+  color: var(--profundo);
+  margin-bottom: 8px !important;
+}
+
+.sitio-info__precio {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--terracota);
+  margin-top: 10px;
+}
+
+.sitio-info__precio small {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+.reserva-total {
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: var(--arena);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 8px 0 16px;
+}
+
+.reserva-status {
+  font-size: 0.85rem;
+  color: var(--oceano);
+  margin-top: 10px;
+  min-height: 1.3em;
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  margin: 8px 0 16px;
+}
+
+.check input {
+  margin-top: 4px;
+}
+
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--profundo);
+  margin-bottom: 12px;
+}
+
+.dock {
+  display: none;
+}
+
+.sitio-card-cta {
+  display: inline-flex;
+  margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 24px 20px;
+    background: var(--crema);
+    border-bottom: 1px solid rgba(0, 91, 107, 0.08);
+    box-shadow: var(--shadow);
+  }
+
+  .nav__links.is-open {
+    display: flex;
+  }
+
+  .nav__links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__links .btn {
+    margin: 8px 0 0;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .news-grid,
+  .alre-grid,
+  .reserva-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --nav-h: 64px;
+  }
+
+  .wrap {
+    padding-inline: 16px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero {
+    min-height: 72svh;
+  }
+
+  .hero__content {
+    padding: 40px 0 88px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .hero__actions .btn,
+  .btn {
+    min-height: 48px;
+    width: 100%;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .precios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicios-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .galeria-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 160px 140px 140px;
+  }
+
+  body.has-dock {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+
+  .dock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background: var(--crema);
+    border-top: 1px solid rgba(0, 91, 107, 0.12);
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .dock a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--profundo);
+    min-height: 48px;
+    border-radius: 10px;
+  }
+
+  .dock a.is-current,
+  .dock a[aria-current="page"] {
+    color: var(--oceano);
+  }
+
+  .wa {
+    bottom: calc(92px + env(safe-area-inset-bottom));
+    right: 14px;
+  }
+
+  .footer {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .facts,
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav__name small {
+    display: none;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .hero {
+    min-height: 78svh;
+  }
+
+  .hero__actions .btn {
+    width: auto;
+  }
+
+  .servicios-grid,
+  .alre-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .precios-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero__content {
+  animation: rise 0.85s ease both;
+}
+
+.hero__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 56px;
+  pointer-events: none;
+  animation: wave-bob 7s ease-in-out infinite;
+}
+
+.hero__script {
+  animation: rise 0.9s ease 0.05s both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.sitio,
+.news,
+.alre,
+.precio,
+.servicio {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sitio:hover,
+.news:hover,
+.alre:hover,
+.precio:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 91, 107, 0.1);
+}
+
+.camp-map button.is-on {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.finz-badge {
+  position: fixed;
+  top: calc(var(--nav-h) + 10px);
+  right: 14px;
+  z-index: 86;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--profundo);
+  background: rgba(255, 248, 238, 0.94);
+  border: 1px solid rgba(0, 91, 107, 0.14);
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  animation: badge-float 3.2s ease-in-out infinite;
+}
+
+.finz-water {
+  position: fixed;
+  left: 50%;
+  top: 48%;
+  z-index: 0;
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 9rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: rgba(0, 91, 107, 0.045);
+  transform: translate(-50%, -50%) rotate(-22deg);
+  white-space: nowrap;
+  animation: water-drift 16s ease-in-out infinite;
+}
+
+.hero,
+.section,
+.cta-band,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.22); }
+  50% { box-shadow: 0 0 0 6px rgba(244, 180, 0, 0.12); }
+}
+
+@keyframes wave-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes water-drift {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-22deg); }
+  50% { transform: translate(-47%, -54%) rotate(-18deg); }
+}
+
+.quote-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 40px 0 20px;
+}
+
+.quote-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--blanco);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.quote-table th,
+.quote-table td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.quote-table th {
+  background: var(--profundo);
+  color: var(--crema);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+}
+
+.quote-table td:last-child,
+.quote-table th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.quote-table tfoot td {
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: var(--arena);
+}
+
+.quote-notes {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 800px) {
+  .finz-badge {
+    top: auto;
+    bottom: calc(92px + env(safe-area-inset-bottom));
+    right: auto;
+    left: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#005B6B" />
+  <title>Reservar sitio — Camping El Oasis</title>
+  <meta name="description" content="Elija sector Bosque o Playa en el mapa, indique fechas y envíe su solicitud de reserva en Camping El Oasis de Guanaqueros." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-dock">
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="nav__logo" href="index.html">
+        <img src="img/logo.png" alt="Camping El Oasis" width="48" height="48" />
+        <span class="nav__name">Camping El Oasis<small>Guanaqueros</small></span>
+      </a>
+      <nav id="navLinks" class="nav__links">
+        <a href="index.html#camping">El camping</a>
+        <a href="index.html#novedades">Novedades</a>
+        <a href="index.html#alrededores">Alrededores</a>
+        <a href="index.html#precios">Precios</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a class="btn btn--sol" href="reservar.html" aria-current="page">Reservar</a>
+      </nav>
+      <button class="nav__burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="wrap page-hero">
+      <p class="kicker">Reservas</p>
+      <h1>Elija su sitio en el mapa</h1>
+      <p class="lede">Toque el sector. Verá si queda frente a la arena o al otro lado del túnel. Los datos quedan guardados para cuando conectemos correo y Transbank. Hoy la solicitud se confirma por WhatsApp.</p>
+    </div>
+
+    <section class="section" style="padding-top:12px;">
+      <div class="wrap reserva-layout">
+        <div>
+          <div class="camp-map">
+            <p class="camp-map__legend">Esquema del camping. No es un plano de cada parcela: muestra dónde queda cada tipo de sitio respecto al mar y al camino.</p>
+            <div class="camp-map__board">
+              <div class="camp-map__sea">Mar · bahía de Guanaqueros</div>
+              <div class="camp-map__sand">Arena de la playa</div>
+              <button type="button" data-sitio="playa-blue" aria-pressed="false">
+                <strong>Blue · primera fila</strong>
+                <small>Frente a la arena · $75.000</small>
+              </button>
+              <button type="button" data-sitio="playa-primera" aria-pressed="false">
+                <strong>Primera línea</strong>
+                <small>A unos metros de la arena · $68.000</small>
+              </button>
+              <button type="button" data-sitio="playa-segunda" aria-pressed="false">
+                <strong>Segunda línea</strong>
+                <small>Más retirada, sector Playa · $62.000</small>
+              </button>
+              <div class="camp-map__road">Camino costero · túnel peatonal</div>
+              <button type="button" data-sitio="bosque" aria-pressed="false">
+                <strong>Sector Bosque</strong>
+                <small>Sombra, al otro lado del camino · $58.000</small>
+              </button>
+            </div>
+            <div class="sitio-info" id="sitioInfo"></div>
+          </div>
+        </div>
+
+        <form class="card" id="formReserva">
+          <h3>Datos de la reserva</h3>
+          <div class="row-2">
+            <div class="field">
+              <label for="r-nombre">Nombre completo</label>
+              <input id="r-nombre" name="nombre" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="r-rut">RUT</label>
+              <input id="r-rut" name="rut" type="text" autocomplete="off" placeholder="Para boleta o factura" />
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label for="r-email">Correo</label>
+              <input id="r-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="r-tel">Teléfono / WhatsApp</label>
+              <input id="r-tel" name="telefono" type="tel" autocomplete="tel" required />
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label for="r-llegada">Llegada (desde 15:00)</label>
+              <input id="r-llegada" name="llegada" type="date" required />
+            </div>
+            <div class="field">
+              <label for="r-salida">Salida (hasta 12:00)</label>
+              <input id="r-salida" name="salida" type="date" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-sector">Sector elegido</label>
+            <select id="r-sector" name="sector" required>
+              <option value="">Seleccione en el mapa o aquí</option>
+              <option value="playa-blue">Blue · primera fila — $75.000</option>
+              <option value="playa-primera">Primera línea — $68.000</option>
+              <option value="playa-segunda">Segunda línea — $62.000</option>
+              <option value="bosque">Bosque — $58.000</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="r-personas">Personas (máximo 6)</label>
+            <select id="r-personas" name="personas">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option selected>6</option>
+            </select>
+          </div>
+          <label class="check">
+            <input id="r-bano" name="bano" type="checkbox" />
+            <span>Baño privado opcional (+$10.000 por noche, según disponibilidad al confirmar)</span>
+          </label>
+          <div class="field">
+            <label for="r-notas">Comentarios</label>
+            <textarea id="r-notas" name="notas" rows="3" placeholder="Mascotas, hora de llegada u otra consulta"></textarea>
+          </div>
+          <p class="reserva-total" id="reservaTotal"></p>
+          <button class="btn btn--sol btn--full" type="submit">Enviar solicitud</button>
+          <p class="help">No cobra todavía. Guardamos los datos en este dispositivo y se envían por WhatsApp. Correo automático y Transbank vienen después.</p>
+          <p class="reserva-status" id="reservaStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__bottom">
+        <span>© 2026 Camping El Oasis · demo Finz-up</span>
+        <a href="index.html">Volver al inicio</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="dock" aria-label="Navegación principal">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#novedades">Novedades</a>
+    <a href="index.html#alrededores">Alrededores</a>
+    <a href="reservar.html" aria-current="page">Reservar</a>
+  </nav>
+
+  <a class="wa" href="https://wa.me/56512395359" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.48A9.9 9.9 0 1 0 12.04 2zm5.76 14.16c-.24.68-1.4 1.24-1.93 1.32-.5.07-1.13.1-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.78-4.16-4.93-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.74-2.12 1-2.41.25-.29.55-.36.73-.36h.53c.17 0 .4-.06.62.47.24.58.8 2 .87 2.14.07.14.12.3.02.49-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.95 1.99 1.25 2.28 1.39.29.14.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.4-.24.67-.14.27.1 1.71.8 2 .95.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+  </a>
+
+  <a class="finz-badge" href="presupuesto.html">Demo · Finz-up</a>
+  <div class="finz-water" aria-hidden="true">FINZ-UP</div>
+
+  <script src="js/sitios.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/reserva.js"></script>
+</body>
+</html>
