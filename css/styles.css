@@ -1645,6 +1645,29 @@ body {
   gap: 12px;
 }
 
+.quote-table--compare td:nth-child(2) {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+.quote-table--compare td:last-child {
+  font-weight: 800;
+  color: var(--profundo);
+}
+
+.quote-table .is-muted {
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .quote-table th,
+  .quote-table td {
+    padding: 12px 10px;
+    font-size: 0.88rem;
+  }
+}
+
 @media (max-width: 800px) {
   .finz-badge {
     top: auto;
