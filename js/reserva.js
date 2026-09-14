@@ -208,7 +208,7 @@
 
       if (statusEl) {
         statusEl.textContent =
-          "Solicitud guardada. Ahora se abre WhatsApp para que el camping la confirme. El correo y Transbank se conectan en el siguiente paso.";
+          "Solicitud guardada. Ahora se abre WhatsApp para que el camping la confirme.";
       }
 
       const mensaje = [

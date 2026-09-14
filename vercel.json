@@ -7,5 +7,10 @@
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/reservar", "destination": "/reservar.html" },
+    { "source": "/presupuesto", "destination": "/presupuesto.html" },
+    { "source": "/mantencion", "destination": "/mantencion.html" }
   ]
 }

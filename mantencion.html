@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#005B6B" />
+  <title>Mantención — Finz-up · Camping El Oasis</title>
+  <meta name="description" content="Guía operativa de mantención mensual Finz-up para Camping El Oasis de Guanaqueros." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="nav__logo" href="index.html">
+        <img src="img/logo.png" alt="Camping El Oasis" width="48" height="48" />
+        <span class="nav__name">Camping El Oasis<small>Guanaqueros</small></span>
+      </a>
+      <nav id="navLinks" class="nav__links">
+        <a href="index.html">Sitio</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a class="btn btn--sol" href="mantencion.html" aria-current="page">Mantención</a>
+      </nav>
+      <button class="nav__burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="wrap page-hero">
+      <p class="kicker">Finz-up · operación</p>
+      <h1>Mantención mensual · $35.000</h1>
+      <p class="lede">Aprobada por el directorio. Cubre que el sitio y los correos sigan vivos. No incluye Transbank ni boletas hasta que el Administrador cierre ese alcance.</p>
+    </div>
+
+    <section class="section section--crema" style="padding-top:8px;">
+      <div class="wrap">
+        <div class="quote-notes">
+          <article class="card">
+            <h3>Qué incluye cada mes</h3>
+            <ul class="info-list" style="gap:8px;">
+              <li>Hosting del sitio (NinjaHosting o el que usen) y revisión de que carga en móvil y escritorio.</li>
+              <li>Plan Personal de <a href="https://www.emailjs.com/pricing/" target="_blank" rel="noopener">EmailJS</a> (USD 9 / mes, hasta 2.000 envíos) cuando los correos estén activos.</li>
+              <li>Cambios de precios, horarios o novedades de temporada (hasta 2 rondas cortas al mes).</li>
+              <li>Ajustes de textos o fotos que el camping envíe por WhatsApp o correo.</li>
+              <li>Copia de respaldo del sitio (archivos de <code>public_html</code>) una vez al mes.</li>
+              <li>Soporte por WhatsApp/correo en horario hábil (respuesta en 1–2 días hábiles).</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Qué no incluye (se cotiza aparte)</h3>
+            <ul class="info-list" style="gap:8px;">
+              <li>Reservas “de verdad” con cupos y panel interno.</li>
+              <li>Integración Transbank / Webpay.</li>
+              <li>Boletas o facturas electrónicas (DTE).</li>
+              <li>Rediseño grande, secciones nuevas o un segundo camping completo.</li>
+              <li>Sesión fotográfica, dominio NIC ni comisión por cada pago.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="kicker" style="margin:36px 0 10px;">Checklist mensual (Finz-up)</p>
+        <div style="overflow-x:auto;">
+          <table class="quote-table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Dónde</th>
+                <th>Hecho</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Abrir inicio, reservar y contacto en celular</td>
+                <td>campingeloasisdeguanaqueros.cl</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td>Confirmar precios vs. lo que mande el camping</td>
+                <td>index.html · js/sitios.js</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td>Actualizar novedades si hay aviso de temporada</td>
+                <td>index.html #novedades</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td>Revisar cuota EmailJS (envíos del mes)</td>
+                <td>emailjs.com</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td>Probar un correo de prueba a contacto@…</td>
+                <td>cPanel / Webmail</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td>Descargar zip de public_html (respaldo)</td>
+                <td>cPanel → Archivos</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td>Anotar cambios hechos y fecha</td>
+                <td>Chat con Eugenio / Administrador</td>
+                <td>☐</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="kicker" style="margin:36px 0 10px;">Arranque de correos (cuando diga el Administrador)</p>
+        <div class="quote-notes">
+          <article class="card">
+            <h3>Cuentas ya pedidas</h3>
+            <p>En cPanel, dominio <strong>campingeloasisdeguanaqueros.cl</strong>:</p>
+            <p style="margin-top:10px;"><code>presidente@</code> · <code>tesorero@</code> · <code>secretario@</code> · <code>administrador@</code> · <code>contacto@</code></p>
+            <p style="margin-top:12px;">El sitio público usa <strong>contacto@campingeloasisdeguanaqueros.cl</strong>. Definir con el Administrador si las solicitudes de reserva también le llegan a <code>administrador@</code>.</p>
+          </article>
+          <article class="card">
+            <h3>EmailJS (paso a paso corto)</h3>
+            <ol class="info-list" style="gap:8px; list-style:decimal; padding-left:1.2rem;">
+              <li>Cuenta en EmailJS, plan Personal.</li>
+              <li>Servicio de correo con Gmail o SMTP de NinjaHosting (<code>mail.campingeloasisdeguanaqueros.cl</code>).</li>
+              <li>Plantilla A: aviso al camping (nombre, fechas, sector, total).</li>
+              <li>Plantilla B: confirmación al huésped (“recibimos su solicitud”).</li>
+              <li>Conectar el envío en <code>js/reserva.js</code> y <code>js/main.js</code> (formulario de contacto).</li>
+            </ol>
+          </article>
+          <article class="card">
+            <h3>NIC y DNS</h3>
+            <p>Josué ya es administrador en NIC de al menos un dominio. El segundo camping (espejo) lo conversa con Eugenio. DNS NinjaHosting: <code>dns1.ninjahosting.cl</code> y <code>dns2.ninjahosting.cl</code>.</p>
+          </article>
+        </div>
+
+        <p class="help" style="margin-top:28px;">Documento interno Finz-up. No publicar en el menú del camping. Referencia alineada al presupuesto FINZ-2026-009 · mantención $35.000 / mes.</p>
+        <p style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn btn--sol" href="index.html">Ver el sitio</a>
+          <a class="btn btn--oceano" href="presupuesto.html">Ver presupuesto</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__bottom">
+        <span>Finz-up · mantención · no indexada</span>
+        <a href="index.html">Volver al sitio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

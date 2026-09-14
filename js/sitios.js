@@ -7,7 +7,7 @@ window.OASIS_SITIOS = [
     precio: 75000,
     playa: "Frente a la arena",
     minutos: "Menos de 1 min a pie",
-    detalle: "La primera fila del sector Playa. El mar queda delante del sitio, sin cruzar el camino.",
+    detalle: "La primera fila del sector Playa. El mar queda delante del sitio, sin cruzar el camino. Mesa, bancas y parrilla. Baños con agua fría y caliente.",
   },
   {
     id: "playa-primera",
@@ -17,7 +17,7 @@ window.OASIS_SITIOS = [
     precio: 68000,
     playa: "A unos metros de la arena",
     minutos: "1 min a pie",
-    detalle: "Sigue en el sector Playa, un poco más retirada que Blue. No cruza el túnel.",
+    detalle: "Sigue en el sector Playa, un poco más retirada que Blue. No cruza el túnel. Mesa, bancas y parrilla.",
   },
   {
     id: "playa-segunda",
@@ -27,7 +27,7 @@ window.OASIS_SITIOS = [
     precio: 62000,
     playa: "Más retirada, aún en Playa",
     minutos: "1 a 2 min a pie",
-    detalle: "Misma orilla del camping, un poco más lejos del borde de arena que la primera línea.",
+    detalle: "Misma orilla del camping, un poco más lejos del borde de arena que la primera línea. Mesa, bancas y parrilla.",
   },
   {
     id: "bosque",
@@ -37,7 +37,7 @@ window.OASIS_SITIOS = [
     precio: 58000,
     playa: "Por el túnel peatonal",
     minutos: "2 a 4 min a pie",
-    detalle: "Sombra y vegetación. El camino costero se cruza por el túnel peatonal, sin pasar autos.",
+    detalle: "Sombra y vegetación. El camino costero se cruza por el túnel peatonal, sin pasar autos. Mesa, bancas y parrilla. Baños con agua fría y caliente.",
     extra: "Baño privado opcional: $10.000",
   },
 ];
