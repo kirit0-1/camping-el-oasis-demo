@@ -9,6 +9,21 @@
   const llegadaInput = document.getElementById("r-llegada");
   const salidaInput = document.getElementById("r-salida");
   const mapButtons = document.querySelectorAll("[data-sitio]");
+  const loader = document.getElementById("reservaLoader");
+
+  function hideLoader() {
+    if (!loader) return;
+    loader.classList.add("is-done");
+    loader.setAttribute("aria-busy", "false");
+    document.body.classList.remove("is-loading-reserva");
+    window.setTimeout(function () {
+      if (loader.parentNode) loader.parentNode.removeChild(loader);
+    }, 500);
+  }
+
+  const reduceMotion =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.setTimeout(hideLoader, reduceMotion ? 200 : 1800);
 
   function findSitio(id) {
     return sitios.find(function (item) {

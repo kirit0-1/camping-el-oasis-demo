@@ -13,7 +13,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="has-dock">
+<body class="has-dock is-loading-reserva">
+  <div class="reserva-loader" id="reservaLoader" role="status" aria-live="polite" aria-busy="true">
+    <div class="reserva-loader__inner">
+      <img src="img/logo.png" alt="" width="160" height="160" />
+      <p class="reserva-loader__title">Estamos trabajando en tu reserva</p>
+      <p class="reserva-loader__sub">Preparando el mapa de sectores…</p>
+      <span class="reserva-loader__bar" aria-hidden="true"></span>
+    </div>
+  </div>
+
   <a class="skip-link" href="#contenido">Ir al contenido</a>
 
   <header class="nav">

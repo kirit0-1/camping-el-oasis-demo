@@ -1292,6 +1292,94 @@ body {
   margin-bottom: 12px;
 }
 
+/* —— Loader reserva —— */
+.reserva-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(165deg, rgba(0, 91, 107, 0.94) 0%, rgba(0, 91, 107, 0.88) 45%, rgba(0, 141, 168, 0.9) 100%);
+  color: var(--crema);
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.reserva-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.reserva-loader__inner {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 28px 24px;
+  max-width: 22rem;
+}
+
+.reserva-loader img {
+  width: clamp(120px, 28vw, 168px);
+  height: auto;
+  border-radius: 50%;
+  background: var(--crema);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  animation: loader-pulse 1.6s ease-in-out infinite;
+}
+
+.reserva-loader__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 3.5vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--sol);
+}
+
+.reserva-loader__sub {
+  font-size: 0.92rem;
+  color: rgba(255, 248, 238, 0.78);
+}
+
+.reserva-loader__bar {
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: rgba(255, 248, 238, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.reserva-loader__bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  border-radius: inherit;
+  background: var(--sol);
+  animation: loader-bar 1.1s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes loader-bar {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reserva-loader img,
+  .reserva-loader__bar::after {
+    animation: none;
+  }
+}
+
 .dock {
   display: none;
 }
