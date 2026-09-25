@@ -10,6 +10,7 @@
   ],
   "rewrites": [
     { "source": "/reservar", "destination": "/reservar.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/presupuesto", "destination": "/presupuesto.html" },
     { "source": "/mantencion", "destination": "/mantencion.html" }
   ]

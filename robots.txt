@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /presupuesto.html
+Disallow: /mantencion.html
+Sitemap: https://campingeloasisdeguanaqueros.cl/sitemap.xml

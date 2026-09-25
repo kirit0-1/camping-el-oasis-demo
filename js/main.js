@@ -2,7 +2,7 @@
   const navLinks = document.getElementById("navLinks");
   const burger = document.getElementById("burger");
   const contactoForm = document.getElementById("formContacto");
-  const waNumber = window.OASIS_WA || "56512395359";
+  const waNumber = window.OASIS_WA || "56986694501";
 
   if (burger && navLinks) {
     burger.addEventListener("click", function () {

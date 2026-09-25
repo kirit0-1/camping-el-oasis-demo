@@ -297,7 +297,7 @@ button {
   color: var(--crema);
   background:
     linear-gradient(180deg, rgba(0, 91, 107, 0.12) 0%, rgba(0, 91, 107, 0.45) 45%, rgba(0, 91, 107, 0.82) 100%),
-    url("https://campingeloasis.cl/images/camping-el-oasis-guanaqueros-01.jpg") center / cover no-repeat;
+    url("../img/galeria-01.jpg") center / cover no-repeat;
 }
 
 .hero__content {
@@ -1146,6 +1146,55 @@ body {
   margin-bottom: 12px;
 }
 
+.camp-maps__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.camp-maps__tabs button {
+  flex: 1;
+  min-width: 140px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 91, 107, 0.14);
+  background: var(--crema);
+  color: var(--profundo);
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.camp-maps__tabs button[aria-selected="true"] {
+  background: var(--profundo);
+  color: var(--crema);
+  border-color: var(--profundo);
+}
+
+.camp-maps__panel {
+  display: none;
+  margin: 0 0 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0, 91, 107, 0.08);
+}
+
+.camp-maps__panel.is-on {
+  display: block;
+}
+
+.camp-maps__panel img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: #fff;
+}
+
+.camp-map__tipos,
 .camp-map__board {
   display: grid;
   gap: 8px;
@@ -1183,7 +1232,7 @@ body {
   font-size: 0.72rem;
 }
 
-.camp-map button {
+.camp-map [data-sitio] {
   width: 100%;
   text-align: left;
   padding: 14px 16px;
@@ -1194,25 +1243,25 @@ body {
   min-height: 52px;
 }
 
-.camp-map button strong {
+.camp-map [data-sitio] strong {
   display: block;
   font-family: var(--font-display);
   font-size: 0.95rem;
 }
 
-.camp-map button small {
+.camp-map [data-sitio] small {
   display: block;
   color: var(--texto-suave);
   font-size: 0.78rem;
 }
 
-.camp-map button.is-on {
+.camp-map [data-sitio].is-on {
   border-color: var(--sol);
   background: #fff6d6;
   box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.25);
 }
 
-.camp-map button[data-sitio="bosque"] {
+.camp-map [data-sitio="bosque"] {
   background: #e7f4ea;
 }
 
@@ -1607,7 +1656,7 @@ body {
   box-shadow: 0 12px 28px rgba(0, 91, 107, 0.1);
 }
 
-.camp-map button.is-on {
+.camp-map [data-sitio].is-on {
   animation: glow 2s ease-in-out infinite;
 }
 

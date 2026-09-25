@@ -43,5 +43,5 @@ window.OASIS_SITIOS = [
 ];
 
 window.OASIS_BANO_PRIVADO = 10000;
-window.OASIS_WA = "56512395359";
+window.OASIS_WA = "56986694501";
 window.OASIS_STORAGE_KEY = "oasisReservas";

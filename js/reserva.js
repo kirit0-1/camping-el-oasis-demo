@@ -9,6 +9,10 @@
   const llegadaInput = document.getElementById("r-llegada");
   const salidaInput = document.getElementById("r-salida");
   const mapButtons = document.querySelectorAll("[data-sitio]");
+  const mapTabs = document.querySelectorAll("[data-map-tab]");
+  const mapPanels = document.querySelectorAll("[data-map-panel]");
+  const privacyCheck = document.getElementById("r-privacidad");
+  const privacyError = document.getElementById("privacidadError");
   const loader = document.getElementById("reservaLoader");
 
   function hideLoader() {
@@ -76,12 +80,41 @@
       (sitio.extra ? "<p class=\"sitio-info__extra\">" + sitio.extra + "</p>" : "");
   }
 
+  function hydratePlanos() {
+    const mapas = window.OASIS_MAPAS || {};
+    Object.keys(mapas).forEach(function (id) {
+      const mapa = mapas[id];
+      const img = document.querySelector('[data-map-panel="' + id + '"] img');
+      if (!img || !mapa) return;
+      if (mapa.src) img.src = mapa.src;
+      if (mapa.alt) img.alt = mapa.alt;
+    });
+  }
+
+  function showPlano(mapId) {
+    const id = mapId || "playa";
+    mapTabs.forEach(function (tab) {
+      const on = tab.getAttribute("data-map-tab") === id;
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.tabIndex = on ? 0 : -1;
+    });
+    mapPanels.forEach(function (panel) {
+      const on = panel.getAttribute("data-map-panel") === id;
+      panel.classList.toggle("is-on", on);
+      if (on) panel.removeAttribute("hidden");
+      else panel.setAttribute("hidden", "");
+    });
+  }
+
   function syncMap(id) {
     mapButtons.forEach(function (btn) {
       const on = btn.getAttribute("data-sitio") === id;
       btn.classList.toggle("is-on", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
+    if (typeof window.OASIS_mapaDeSitio === "function") {
+      showPlano(window.OASIS_mapaDeSitio(id));
+    }
   }
 
   function updateTotal() {
@@ -125,7 +158,45 @@
     btn.addEventListener("click", function () {
       selectSitio(btn.getAttribute("data-sitio"), true);
     });
+    btn.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        selectSitio(btn.getAttribute("data-sitio"), true);
+      }
+    });
   });
+
+  mapTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      showPlano(tab.getAttribute("data-map-tab"));
+    });
+    tab.addEventListener("keydown", function (event) {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (keys.indexOf(event.key) === -1) return;
+      event.preventDefault();
+      const list = Array.prototype.slice.call(mapTabs);
+      const i = list.indexOf(tab);
+      let next = i;
+      if (event.key === "ArrowRight") next = (i + 1) % list.length;
+      if (event.key === "ArrowLeft") next = (i - 1 + list.length) % list.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = list.length - 1;
+      const target = list[next];
+      if (target) {
+        showPlano(target.getAttribute("data-map-tab"));
+        target.focus();
+      }
+    });
+  });
+
+  if (privacyCheck) {
+    privacyCheck.addEventListener("change", function () {
+      if (privacyError && privacyCheck.checked) privacyError.hidden = true;
+    });
+  }
+
+  hydratePlanos();
+  showPlano("playa");
 
   if (select) {
     select.addEventListener("change", function () {
@@ -182,6 +253,12 @@
         form.reportValidity();
         return;
       }
+      if (privacyCheck && !privacyCheck.checked) {
+        if (privacyError) privacyError.hidden = false;
+        privacyCheck.focus();
+        return;
+      }
+      if (privacyError) privacyError.hidden = true;
       if (!noches) {
         if (statusEl) statusEl.textContent = "La fecha de salida debe ser posterior a la de llegada.";
         return;

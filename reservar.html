@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -8,6 +8,12 @@
   <meta name="description" content="Elija sector Bosque o Playa en el mapa, indique fechas y envíe su solicitud de reserva en Camping El Oasis de Guanaqueros." />
   <link rel="canonical" href="https://campingeloasisdeguanaqueros.cl/reservar.html" />
   <link rel="icon" href="img/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Reservar sitio — Camping El Oasis" />
+  <meta property="og:description" content="Elija sector Bosque o Playa en el mapa oficial y envíe su solicitud por WhatsApp." />
+  <meta property="og:url" content="https://campingeloasisdeguanaqueros.cl/reservar.html" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:image" content="https://campingeloasisdeguanaqueros.cl/img/plano-playa.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -49,17 +55,25 @@
     <div class="wrap page-hero">
       <p class="kicker">Reservas</p>
       <h1>Elija su sitio en el mapa</h1>
-      <p class="lede">Toque el sector. Verá si queda frente a la arena o al otro lado del túnel. La solicitud se confirma por WhatsApp o al teléfono del camping.</p>
+      <p class="lede">Vea los planos oficiales de Bosque y Playa, elija el tipo de sitio y deje sus datos. Confirmamos por WhatsApp o al +56 9 8669 4501.</p>
     </div>
 
     <section class="section" style="padding-top:12px;">
       <div class="wrap reserva-layout">
         <div>
-          <div class="camp-map">
-            <p class="camp-map__legend">Esquema del camping. No es un plano de cada parcela: muestra dónde queda cada tipo de sitio respecto al mar y al camino.</p>
-            <div class="camp-map__board">
-              <div class="camp-map__sea">Mar · bahía de Guanaqueros</div>
-              <div class="camp-map__sand">Arena de la playa</div>
+          <div class="camp-map" data-map-root>
+            <p class="camp-map__legend">Planos oficiales. Elija Bosque o Playa y luego el tipo de sitio. Más adelante cada parcela podrá marcarse sobre este mismo plano.</p>
+            <div class="camp-maps__tabs" role="tablist" aria-label="Planos del camping">
+              <button type="button" role="tab" id="tab-playa" data-map-tab="playa" aria-selected="true" aria-controls="panel-playa">Sector Playa</button>
+              <button type="button" role="tab" id="tab-bosque" data-map-tab="bosque" aria-selected="false" aria-controls="panel-bosque">Sector Bosque</button>
+            </div>
+            <figure class="camp-maps__panel is-on" id="panel-playa" data-map-panel="playa" role="tabpanel" aria-labelledby="tab-playa">
+              <img src="img/plano-playa.jpg" alt="Plano oficial del sector Playa: Blue, primera y segunda línea, duchas y baños" width="1400" height="900" decoding="async" fetchpriority="high" sizes="(min-width: 900px) 52vw, 100vw" />
+            </figure>
+            <figure class="camp-maps__panel" id="panel-bosque" data-map-panel="bosque" role="tabpanel" aria-labelledby="tab-bosque" hidden>
+              <img src="img/plano-bosque.png" alt="Plano oficial del sector Bosque: sitios, lavaderos, baños, pérgola y recepción" width="1400" height="1000" decoding="async" loading="lazy" sizes="(min-width: 900px) 52vw, 100vw" />
+            </figure>
+            <div class="camp-map__tipos" role="group" aria-label="Tipo de sitio">
               <button type="button" data-sitio="playa-blue" aria-pressed="false">
                 <strong>Blue · primera fila</strong>
                 <small>Frente a la arena · $75.000</small>
@@ -72,7 +86,6 @@
                 <strong>Segunda línea</strong>
                 <small>Más retirada, sector Playa · $62.000</small>
               </button>
-              <div class="camp-map__road">Camino costero · túnel peatonal</div>
               <button type="button" data-sitio="bosque" aria-pressed="false">
                 <strong>Sector Bosque</strong>
                 <small>Sombra, al otro lado del camino · $58.000</small>
@@ -144,6 +157,11 @@
             <textarea id="r-notas" name="notas" rows="3" placeholder="Mascotas, hora de llegada u otra consulta"></textarea>
           </div>
           <p class="reserva-total" id="reservaTotal"></p>
+          <label class="check">
+            <input id="r-privacidad" name="privacidad" type="checkbox" required />
+            <span>He leído y acepto la <a href="privacy.html">Política de Privacidad</a></span>
+          </label>
+          <p class="help" id="privacidadError" role="alert" hidden>Marque la casilla de privacidad para enviar la solicitud.</p>
           <button class="btn btn--sol btn--full" type="submit">Enviar solicitud</button>
           <p class="help">No cobra en el sitio. Guardamos los datos en este dispositivo y se envían por WhatsApp para que el camping confirme.</p>
           <p class="reserva-status" id="reservaStatus" role="status"></p>
@@ -156,7 +174,7 @@
     <div class="wrap">
       <div class="footer__bottom">
         <span>© 2026 Camping El Oasis · Diseño Finz-up</span>
-        <a href="index.html">Volver al inicio</a>
+        <span><a href="privacy.html">Privacidad</a> · <a href="index.html">Inicio</a></span>
       </div>
     </div>
   </footer>
@@ -168,11 +186,12 @@
     <a href="reservar.html" aria-current="page">Reservar</a>
   </nav>
 
-  <a class="wa" href="https://wa.me/56512395359" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="wa" href="https://wa.me/56986694501" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.48A9.9 9.9 0 1 0 12.04 2zm5.76 14.16c-.24.68-1.4 1.24-1.93 1.32-.5.07-1.13.1-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.78-4.16-4.93-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.74-2.12 1-2.41.25-.29.55-.36.73-.36h.53c.17 0 .4-.06.62.47.24.58.8 2 .87 2.14.07.14.12.3.02.49-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.95 1.99 1.25 2.28 1.39.29.14.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.4-.24.67-.14.27.1 1.71.8 2 .95.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
   </a>
 
   <script src="js/sitios.js"></script>
+  <script src="js/mapas.js"></script>
   <script src="js/main.js"></script>
   <script src="js/reserva.js"></script>
 </body>
